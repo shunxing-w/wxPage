@@ -1,0 +1,283 @@
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="robots" content="nofollow,noindex,noarchive">
+    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+    <script src="pdfobject.js"></script>
+    <title>页面跳转</title>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'Microsoft Yahei';
+        }
+
+        body {
+            font-size: 15px;
+        }
+
+        @media screen and (max-width: 640px) {
+            body {
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 360px) {
+            body {
+                font-size: 12px;
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .wrap {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .open_page_text {
+            text-align: center;
+           padding-top: 30px;
+            font-size: 1.5em;
+            color: #323232;
+        }
+
+        .open_page_url {
+            margin: 1.25em 0 0.5em;
+            /* font-size: 1.5em; */
+            line-height: 1.25em;
+            color: #333;
+            word-wrap: break-word;
+            text-align: center;
+            /* background: #f2f2f2; */
+            padding: 10px;
+            max-height: 200px;
+        }
+
+        .open_page_url p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 18px;
+            /* display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical; */
+        }
+
+        .open_page_tips {
+            font-size: 1.5em;
+            color: #323232;
+            text-align: center;
+            line-height: 2.55em;
+        }
+
+        .open_url_tips {
+            position: absolute;
+            left: 0;
+            bottom: 42px;
+            width: 100%;
+            display: block;
+            align-items: center;
+            text-align: center;
+
+            color: #617891;
+            box-sizing: border-box;
+        }
+
+        .open_url_tips img {
+            width: 12px;
+            height: 12px;
+            margin: 0 3px;
+            vertical-align: middle;
+        }
+
+        .footer {
+            margin-top: 140px;
+            width: 100%;
+        }
+
+        @media screen and (max-height: 640px) {
+            .footer {
+                margin-top: 24px;
+            }
+        }
+
+        .open_page_go {
+            display: block;
+            width: 70%;
+            height: 40px;
+            line-height: 40px;
+            font-size: 1.5em;
+            color: #FFF;
+            text-align: center;
+            border-radius: 4px;
+            color: #56a848;
+            background-color: #efefef;
+            /* border: 1px solid #56a848; */
+            margin: 0 auto;
+        }
+
+        .open_page_notip {
+            margin-top: 1.5em;
+            font-size: 1.125em;
+            color: #666;
+            text-align: center;
+        }
+
+        .open_page_certy {
+            color: #4fa2e2;
+        }
+
+        .open_page_url_tips {
+            max-width: 286px;
+            text-align: center;
+            margin: 24px auto 0;
+            color: #000;
+        }
+
+        a.text-blue {
+            color: #357bb3;
+        }
+
+        a.text-blue:focus,
+        a.text-blue:hover {
+            color: #014c8c;
+        }
+
+        .footer p {
+            text-align: center;
+            font-size: 1.2em;
+            color: #bebebe;
+            margin-bottom: 1.5em;
+        }
+
+        .footer_bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .footer_bottom p {
+            text-align: center;
+            line-height: 2.2em;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        #content {
+            position: relative;
+            height: auto !important;
+            min-height: 90%;
+            margin: 0 auto -90px;
+            text-align: center;
+        }
+
+        .report_wrap {
+            position: absolute;
+            left: 0;
+            bottom: 16px;
+            width: 100%;
+            text-align: right;
+            color: rgb(97, 120, 145);
+        }
+
+        #report {
+            padding: 0 24px;
+            color: #999;
+        }
+
+        @media screen and (max-height: 540px) {
+
+            .open_url_tips,
+            .report_wrap {
+                position: static;
+                padding-bottom: 24px;
+            }
+
+            #content {
+                margin-bottom: 24px;
+            }
+        }
+    </style>
+    <script async="" src="https://static.clewm.net/public/analytics.js"></script>
+    <script src="//hm.baidu.com/hm.js?702c43c086294cf6b0a2474d75381e26"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?702c43c086294cf6b0a2474d75381e26";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script src="//static.clewm.net/public/cli_analytics.js"></script>
+</head>
+
+<body>
+    <div class="wrap" id="cli_content">
+        <div id="content">
+            <img style=" padding-top: 6em;width:54px;height:53px;" src="https://oss.sgitns.com/UploadFile/KnowledgeLib/00001/未标题-331.png" alt="">
+            <p class="open_page_text">将要访问</p>
+            <div class="open_page_url">
+                <p>https://222.85.128.66:9200/H5QR/h/1043/k0RSs8Em2gTOErRc3MvyeA</p>
+            </div>
+            <p class="open_page_url_tips">该地为IP地址，请使用域名访问网站。</p>
+            <div class="footer">
+                  <a  class="open_page_go" href="/web/viewer.html?file=https://oss.sgitns.com/UploadFile/KnowledgeLib/1043/k0RSs8Em2gTO23.pdf" target="_blank">继续访问</a>
+                  <!-- <a class="open_page_go" href="https://oss.sgitns.com/UploadFile/KnowledgeLib/1043/k0RSs8Em2gTO23.pdf">继续访问</a></div> -->
+        </div>
+    </div>
+    <script>
+        // window.onload=function(){
+        // var at = new bizfree('cli_content','content');
+        // }
+        function getUrlPara(name) {
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return '';
+        }
+        function report() {
+            var coding = getUrlPara('coding');
+            var host = window.location.host;
+            var reportHost = '//h5.clewm.net/complain';
+            if (host.indexOf('targurl.cliim.net') > -1) {
+                reportHost = '//h5.cliim.net/complain';
+            }
+            window.location.assign(reportHost + '?coding=' + coding)
+        }
+        var reportDom = document.getElementById('report');
+        reportDom.onclick = report;
+        function StatisticsData() {
+            var oReq = new XMLHttpRequest();
+            oReq.open("GET", "https://cli.im/Api/ClickLog/click?fir=122&sec=9");
+            oReq.send();
+        }
+    </script>
+</body>
+
+</html>
